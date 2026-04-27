@@ -1,9 +1,16 @@
 from flask import Flask, render_template
+from database.db import init_db, seed_db
 
 app = Flask(__name__)
 
+with app.app_context():
+    # Initialize database tables and seed data
+    init_db()
+    seed_db()
 
-# ------------------------------------------------------------------ #
+
+# ----------------
+# -------------------------------------------------- #
 # Routes                                                              #
 # ------------------------------------------------------------------ #
 
